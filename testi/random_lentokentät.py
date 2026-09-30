@@ -13,6 +13,15 @@ def lentokenttät_random_10():
     return lentokentät_random 
 
 
+yhteys = mysql.connector.connect(
+    host="127.0.0.1",
+    port= 3306,
+    database="flight_game",
+    user="root",
+    #en laita salasanaa näkyvillä koska se on public reposity
+    password="1234",
+    autocommit=True
+    )
 
 
 
