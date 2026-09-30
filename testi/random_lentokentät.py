@@ -25,5 +25,5 @@ yhteys = mysql.connector.connect(
 
 
 
-hakemus = lentokenttät_random_10()
+hakemus = lentokenttat_random_10()
 print(hakemus)
