@@ -7,8 +7,8 @@ YHTEYS_TIEDOT = {
     "host": "127.0.0.1",
     "port": 3306,
     "database": "flight_game",
-    "user": "atte",
-    "password": "140507",
+    "user": "root",
+    "password": "123#edcvBnmko=9",
     "autocommit": True,
     "collation": "utf8mb4_general_ci",
 }
@@ -82,11 +82,12 @@ if __name__ == "__main__":
     nykyinen_sijainti = KOTIKENTTA
     raha = 0
     polttoaine = ALKU_POLTTOAINE
+    
+    tunnukset = lentokentat_random_10(yhteys)
+    tunnukset = [KOTIKENTTA] + tunnukset[:9]
 
     while True:
-        tunnukset = lentokentat_random_10(yhteys)
-        tunnukset = [KOTIKENTTA] + tunnukset[:9]
-
+        
         nayta_tilanne(nykyinen_sijainti, raha, polttoaine)
 
         print("")
