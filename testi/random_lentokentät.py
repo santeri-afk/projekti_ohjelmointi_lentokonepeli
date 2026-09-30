@@ -1,4 +1,5 @@
 import mysql.connector
+
 def lentokenttät_random_10():
     lentokentät_random = []
     sql =f"Select ident from airport where continent = 'EU' and type = 'Large_airport' order by rand() LIMIT 10"
@@ -14,15 +15,6 @@ def lentokenttät_random_10():
 
 
 
-yhteys = mysql.connector.connect(
-    host="127.0.0.1",
-    port= 3306,
-    database="flight_game",
-    user="root",
-    #en laita salasanaa näkyvillä koska se on public reposity
-    password="123#edcvBnmko=9",
-    autocommit=True
-    )
 
 hakemus = lentokenttät_random_10()
 print(hakemus)
