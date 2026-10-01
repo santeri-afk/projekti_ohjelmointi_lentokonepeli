@@ -130,7 +130,7 @@ if __name__ == "__main__":
             nykyinen_sijainti = tunnukset[indeksi]
 
             if nykyinen_sijainti == KOTIKENTTA:
-                if raha < 400:
+                if raha < TAVOITE_RAHA:
                     print("Ei ollut tarpeeksi rahaa. Hävisit pelin.")
                     break
                 else:
