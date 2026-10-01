@@ -7,8 +7,8 @@ YHTEYS_TIEDOT = {
     "host": "127.0.0.1",
     "port": 3306,
     "database": "flight_game",
-    "user": "atte",
-    "password": "140507",
+    "user": "root",
+    "password": "123#edcvBnmko=9",
     "autocommit": True,
     "collation": "utf8mb4_general_ci",
 }
@@ -118,8 +118,7 @@ if __name__ == "__main__":
         if valinta == "0":
             print("Peli lopetettu.")
             break
-        #EN TIEDÄ MITÄ TEKEE MUTTA PITI OLLA MUUTEN HEITTI ERROR JOS VÄÄRÄ MERKKI
-        #tai siis en tiedä isdigit yms
+        
         if valinta.isdigit() and 1 <= int(valinta) <= len(tunnukset):
             indeksi = int(valinta) - 1
             polttoaine -= etaisyys_km(yhteys, nykyinen_sijainti, tunnukset[indeksi])
