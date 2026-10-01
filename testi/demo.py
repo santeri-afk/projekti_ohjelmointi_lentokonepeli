@@ -109,46 +109,53 @@ def pelinaloitus():
 if __name__ == "__main__":
 
     yhteys = avaa_yhteys()
-    pelinaloitus()
-    pelaajan_nimi = input("Anna pelaajan nimi: ")
-    nykyinen_sijainti = KOTIKENTTA
-    raha = 0
-    polttoaine = ALKU_POLTTOAINE
-    
-    tunnukset = lentokentat_random_10(yhteys)
-    tunnukset = [KOTIKENTTA] + tunnukset[:9]
 
     while True:
-        
-        nayta_tilanne(pelaajan_nimi, nykyinen_sijainti, raha, polttoaine)
+        pelinaloitus()
+        pelaajan_nimi = input("Anna pelaajan nimi: ")
+        nykyinen_sijainti = KOTIKENTTA
+        raha = 0
+        polttoaine = ALKU_POLTTOAINE
+    
+        tunnukset = lentokentat_random_10(yhteys)
+        tunnukset = [KOTIKENTTA] + tunnukset[:9]
 
-        print("")
-        print("Lentokentät etäisyyksineen sijainnista", nykyinen_sijainti, ":")
-        tulosta_kentat(yhteys, nykyinen_sijainti, tunnukset)
+        while True:
+            
+            nayta_tilanne(pelaajan_nimi, nykyinen_sijainti, raha, polttoaine)
 
-        print("0. Lopeta")
-        valinta = input("Valintasi: ")
+            print("")
+            print("Lentokentät etäisyyksineen sijainnista", nykyinen_sijainti, ":")
+            tulosta_kentat(yhteys, nykyinen_sijainti, tunnukset)
 
-        if valinta == "0":
-            print("Peli lopetettu.")
-            break
-        if valinta.isdigit() and 1 <= int(valinta) <= len(tunnukset):
-            indeksi = int(valinta) - 1
-            polttoaine -= etaisyys_km(yhteys, nykyinen_sijainti, tunnukset[indeksi])
-            polttoaine = round(polttoaine)
-            if polttoaine < 0:
-                print("Hävisit pelin.")
+            print("0. Lopeta")
+            valinta = input("Valintasi: ")
+
+            if valinta == "0":
+                print("Peli lopetettu.")
                 break
-            nykyinen_sijainti = tunnukset[indeksi]
+            if valinta.isdigit() and 1 <= int(valinta) <= len(tunnukset):
+                indeksi = int(valinta) - 1
+                polttoaine -= etaisyys_km(yhteys, nykyinen_sijainti, tunnukset[indeksi])
+                polttoaine = round(polttoaine)
+                if polttoaine < 0:
+                    print("Hävisit pelin.")
+                    break
+                nykyinen_sijainti = tunnukset[indeksi]
 
-            if nykyinen_sijainti == KOTIKENTTA:
-                if raha < TAVOITE_RAHA:
-                    print("Ei ollut tarpeeksi rahaa. Hävisit pelin.")
-                    break
-                else:
-                    print("Voitit pelin.")
-                    break
+                if nykyinen_sijainti == KOTIKENTTA:
+                    if raha < TAVOITE_RAHA:
+                        print("Ei ollut tarpeeksi rahaa. Hävisit pelin.")
+                        break
+                    else:
+                        print("Voitit pelin.")
+                        break
+            else:
+                print("VÄÄRÄ VALINTA")
+            #____________________________________________________________
+        uudestaan = int(input("Haluatko pelaa uudestaan? laita 0 että peli lopettaa tai laita 1 jos haluat pelata uudestaan: "))
+        if uudestaan == 1:
+            continue
         else:
-            print("VÄÄRÄ VALINTA")
-        #____________________________________________________________
+            break
     yhteys.close()
