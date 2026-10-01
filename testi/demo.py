@@ -116,7 +116,7 @@ if __name__ == "__main__":
         nykyinen_sijainti = KOTIKENTTA
         raha = 0
         polttoaine = ALKU_POLTTOAINE
-    
+        kaydyt_kentat = set()
         tunnukset = lentokentat_random_10(yhteys)
         tunnukset = [KOTIKENTTA] + tunnukset[:9]
 
@@ -150,6 +150,8 @@ if __name__ == "__main__":
                     else:
                         print("Voitit pelin.")
                         break
+                else:
+                    raha = anna_rahaa_uudesta_kentasta(nykyinen_sijainti, kaydyt_kentat, raha)
             else:
                 print("VÄÄRÄ VALINTA")
             #____________________________________________________________
