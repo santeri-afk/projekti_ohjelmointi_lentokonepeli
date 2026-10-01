@@ -128,6 +128,14 @@ if __name__ == "__main__":
                 print("Hävisit pelin.")
                 break
             nykyinen_sijainti = tunnukset[indeksi]
+
+            if nykyinen_sijainti == KOTIKENTTA:
+                if raha < 400:
+                    print("Ei ollut tarpeeksi rahaa. Hävisit pelin.")
+                    break
+                else:
+                    print("Voitit pelin.")
+                    break
         else:
             print("VÄÄRÄ VALINTA")
         #____________________________________________________________
