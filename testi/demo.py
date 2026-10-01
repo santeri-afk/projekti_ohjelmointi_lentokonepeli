@@ -49,8 +49,8 @@ def lentokentat_random_10(yhteys):
     tunnukset = []
     for rivi in tulos:
         tunnukset.append(rivi[0])
-
-    return tunnukset
+        if len(tunnukset) == KENTTIEN_MAARA:
+            return tunnukset
 
 def nayta_tilanne(nimi, sijainti, raha, polttoaine):
     print("\n--- PELAAJAN TILANNE ---")
