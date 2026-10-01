@@ -7,8 +7,8 @@ YHTEYS_TIEDOT = {
     "host": "127.0.0.1",
     "port": 3306,
     "database": "flight_game",
-    "user": "root",
-    "password": "123#edcvBnmko=9",
+    "user": "atte",
+    "password": "140507",
     "autocommit": True,
     "collation": "utf8mb4_general_ci",
 }
@@ -52,8 +52,9 @@ def lentokentat_random_10(yhteys):
 
     return tunnukset
 
-def nayta_tilanne(sijainti, raha, polttoaine):
+def nayta_tilanne(nimi, sijainti, raha, polttoaine):
     print("\n--- PELAAJAN TILANNE ---")
+    print("Pelaaja:", nimi)
     print("Sijainti:", sijainti)
     print("Raha:", raha, "€")
     print("Polttoaine:", polttoaine, "km")
@@ -79,6 +80,7 @@ def tulosta_kentat(yhteys, oma_sijainti, tunnukset):
 if __name__ == "__main__":
 
     yhteys = avaa_yhteys()
+    pelaajan_nimi = input("Anna pelaajan nimi: ")
     nykyinen_sijainti = KOTIKENTTA
     raha = 0
     polttoaine = ALKU_POLTTOAINE
@@ -88,7 +90,7 @@ if __name__ == "__main__":
 
     while True:
         
-        nayta_tilanne(nykyinen_sijainti, raha, polttoaine)
+        nayta_tilanne(pelaajan_nimi, nykyinen_sijainti, raha, polttoaine)
 
         print("")
         print("Lentokentät etäisyyksineen sijainnista", nykyinen_sijainti, ":")
