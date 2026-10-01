@@ -104,6 +104,11 @@ if __name__ == "__main__":
         #tai siis en tiedä isdigit yms
         if valinta.isdigit() and 1 <= int(valinta) <= len(tunnukset):
             indeksi = int(valinta) - 1
+            polttoaine -= etaisyys_km(yhteys, nykyinen_sijainti, tunnukset[indeksi])
+            polttoaine = round(polttoaine)
+            if polttoaine < 0:
+                print("Hävisit pelin.")
+                break
             nykyinen_sijainti = tunnukset[indeksi]
         else:
             print("VÄÄRÄ VALINTA")
