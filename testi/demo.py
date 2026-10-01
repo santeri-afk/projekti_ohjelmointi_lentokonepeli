@@ -118,8 +118,6 @@ if __name__ == "__main__":
         if valinta == "0":
             print("Peli lopetettu.")
             break
-        #EN TIEDÄ MITÄ TEKEE MUTTA PITI OLLA MUUTEN HEITTI ERROR JOS VÄÄRÄ MERKKI
-        #tai siis en tiedä isdigit yms
         if valinta.isdigit() and 1 <= int(valinta) <= len(tunnukset):
             indeksi = int(valinta) - 1
             polttoaine -= etaisyys_km(yhteys, nykyinen_sijainti, tunnukset[indeksi])
