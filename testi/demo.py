@@ -77,9 +77,25 @@ def tulosta_kentat(yhteys, oma_sijainti, tunnukset):
               "-", round(matka), "km")
         numero = numero + 1
 
+def pelinaloitus():
+    print("\n==============================")
+    print("        LENTOPELI")
+    print("==============================")
+    print("\nTervetuloa")
+    print(f"\nLähdet matkalle Helsinki-Vantaalta ({KOTIKENTTA}) ympäri Eurooppaa.")
+    print("\nTEHTÄVÄSI:")
+    print(f"  - Kerää yhteensä {TAVOITE_RAHA} € lentämällä kentältä toiselle.")
+    print(f"  - Polttoainetta on {ALKU_POLTTOAINE} km verran. Jokainen lento kuluttaa sitä.")
+    print(f"  - Palaa lopuksi takaisin Helsinkiin ({KOTIKENTTA}).")
+    print("\nVAROITUS:")
+    print("  Jos polttoaine loppuu kesken matkan, peli on hävitty.")
+    print("  Suunnittele reittisi siis tarkasti!")
+    print("\nHyvää lentoa!\n")
+
 if __name__ == "__main__":
 
     yhteys = avaa_yhteys()
+    pelinaloitus()
     pelaajan_nimi = input("Anna pelaajan nimi: ")
     nykyinen_sijainti = KOTIKENTTA
     raha = 0
