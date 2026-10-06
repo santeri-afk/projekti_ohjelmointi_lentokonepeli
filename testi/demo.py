@@ -28,7 +28,7 @@ def avaa_yhteys():
 ###################################
 def anna_rahaa_uudesta_kentasta(kohde, kaydyt_kentat, raha):
     if kohde not in kaydyt_kentat:
-        saatu_raha = random.randint(50, 100)
+        saatu_raha = random.randint(75, 125)
         raha += saatu_raha
         kaydyt_kentat.add(kohde)
 
