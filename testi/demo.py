@@ -79,7 +79,7 @@ def nayta_tilanne(nimi, sijainti, raha, polttoaine):
     print("\n--- PELAAJAN TILANNE ---")
     print("Pelaaja:", nimi)
     print("Sijainti:", sijainti)
-    print("Raha:", raha, "€")
+    print("Raha:", raha, "€","/" TAVOITE_RAHA,"€" )
     print("Polttoaine:", polttoaine, "km")
     print("------------------------")
 
