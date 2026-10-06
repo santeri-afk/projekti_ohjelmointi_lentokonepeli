@@ -23,6 +23,9 @@ def avaa_yhteys():
     """Avaa yhteyden tietokantaan ja palauttaa yhteysolion."""
     return mysql.connector.connect(**YHTEYS_TIEDOT)
 
+###################################
+#      Rahanrandomisointi         #
+###################################
 def anna_rahaa_uudesta_kentasta(kohde, kaydyt_kentat, raha):
     if kohde not in kaydyt_kentat:
         saatu_raha = random.randint(50, 100)
@@ -38,6 +41,9 @@ def anna_rahaa_uudesta_kentasta(kohde, kaydyt_kentat, raha):
 
     return raha  
 
+#######################################################
+#     Hakee tietokannasta kenttien tiedot identillä   #
+#######################################################
 def hae_kentta_tiedot(yhteys, ident):
     """Hakee yhden lentokentan ICAO-tunnuksen perusteella."""
     kursori = yhteys.cursor(dictionary=True)
@@ -49,8 +55,9 @@ def hae_kentta_tiedot(yhteys, ident):
     rivi = kursori.fetchone()
     kursori.close()
     return rivi
-
-
+######################################################
+#      Hakee kymmenen random kentän identit          #
+######################################################
 def lentokentat_random_10(yhteys):
     kursori = yhteys.cursor()
     sql = """SELECT ident FROM airport
@@ -65,7 +72,9 @@ def lentokentat_random_10(yhteys):
         tunnukset.append(rivi[0])
         if len(tunnukset) == KENTTIEN_MAARA:
             return tunnukset
-
+##########################################################
+#     Näyttää sijainnin rahat yms roundien välissä       #
+##########################################################
 def nayta_tilanne(nimi, sijainti, raha, polttoaine):
     print("\n--- PELAAJAN TILANNE ---")
     print("Pelaaja:", nimi)
@@ -74,12 +83,17 @@ def nayta_tilanne(nimi, sijainti, raha, polttoaine):
     print("Polttoaine:", polttoaine, "km")
     print("------------------------")
 
+##############################################
+#        laskee a ja b kentän etäisyyden     #
+##############################################
 def etaisyys_km(yhteys, maa1, maa2):
     tulos1 = (hae_kentta_tiedot(yhteys, maa1)["latitude_deg"], hae_kentta_tiedot(yhteys, maa1)["longitude_deg"])
 
     tulos2 = (hae_kentta_tiedot(yhteys, maa2)["latitude_deg"], hae_kentta_tiedot(yhteys, maa2)["longitude_deg"])
     return (geodesic(tulos1, tulos2).km)
-
+########################################
+#     Tulostaa kentät listaksi         #
+########################################
 def tulosta_kentat(yhteys, oma_sijainti, tunnukset):
     numero = 1
     for tunnus in tunnukset:
@@ -91,6 +105,9 @@ def tulosta_kentat(yhteys, oma_sijainti, tunnukset):
               "-", round(matka), "km")
         numero = numero + 1
 
+########################################
+#       pelin aloitus ohjeet yms       #
+########################################
 def pelinaloitus():
     print("\n==============================")
     print("        LENTOPELI")
@@ -106,6 +123,9 @@ def pelinaloitus():
     print("  Suunnittele reittisi siis tarkasti!")
     print("\nHyvää lentoa!\n")
 
+##############
+#   Peli     #
+##############
 if __name__ == "__main__":
 
     yhteys = avaa_yhteys()
