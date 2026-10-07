@@ -28,7 +28,7 @@ def avaa_yhteys():
 ###################################
 def anna_rahaa_uudesta_kentasta(kohde, kaydyt_kentat, raha):
     if kohde not in kaydyt_kentat:
-        saatu_raha = random.randint(75, 125)
+        saatu_raha = random.randint(65, 125)
         raha += saatu_raha
         kaydyt_kentat.add(kohde)
 
@@ -79,7 +79,7 @@ def nayta_tilanne(nimi, sijainti, raha, polttoaine):
     print("\n--- PELAAJAN TILANNE ---")
     print("Pelaaja:", nimi)
     print("Sijainti:", sijainti)
-    print("Raha:", raha, "€","/" TAVOITE_RAHA,"€" )
+    print("Raha:", raha, "€")
     print("Polttoaine:", polttoaine, "km")
     print("------------------------")
 
@@ -174,7 +174,7 @@ if __name__ == "__main__":
                     raha = anna_rahaa_uudesta_kentasta(nykyinen_sijainti, kaydyt_kentat, raha)
             else:
                 print("VÄÄRÄ VALINTA")
-            #____________________________________________________________
+            
         uudestaan = int(input("Haluatko pelaa uudestaan? laita 0 että peli lopettaa tai laita 1 jos haluat pelata uudestaan: "))
         if uudestaan == 1:
             continue
