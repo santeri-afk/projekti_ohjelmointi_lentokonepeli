@@ -1,7 +1,7 @@
 # LENTOPELI PROJEKTI
 
 > Tämä on koulutehtävänä tehty ryhmäprojekti.
-Pelaaja lentää Helsinki-Vantaalta ympäri Eurooppaa, kerää rahaa ja palaa lopuksi takaisin Helsinkiin.
+- Pelaaja lentää Helsinki-Vantaalta ympäri Eurooppaa, kerää rahaa ja palaa lopuksi takaisin Helsinkiin.
 
 ## Pelin säännöt
 - Tavoite: Kerää vähintään 400€ ja palaa takaisin Helsinki-Vantaalle.
