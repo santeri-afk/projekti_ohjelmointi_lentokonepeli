@@ -58,6 +58,7 @@ def hae_kentta_tiedot(yhteys, ident):
     rivi = kursori.fetchone()
     kursori.close()
     return rivi
+
 ######################################################
 #      Hakee kymmenen random kentän identit          #
 ######################################################
@@ -75,6 +76,7 @@ def lentokentat_random_10(yhteys):
         tunnukset.append(rivi[0])
         if len(tunnukset) == KENTTIEN_MAARA:
             return tunnukset
+
 ##########################################################
 #     Näyttää sijainnin rahat yms roundien välissä       #
 ##########################################################
@@ -94,6 +96,7 @@ def etaisyys_km(yhteys, maa1, maa2):
 
     tulos2 = (hae_kentta_tiedot(yhteys, maa2)["latitude_deg"], hae_kentta_tiedot(yhteys, maa2)["longitude_deg"])
     return (geodesic(tulos1, tulos2).km)
+
 ########################################
 #     Tulostaa kentät listaksi         #
 ########################################
