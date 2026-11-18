@@ -1,6 +1,6 @@
-from tilanne import nayta_tilanne
+from Projekti_1.testi.tilanne import nayta_tilanne
 from hae_kentan_tiedot_fun import hae_kentta_tiedot
-from maiden_pituus import maiden_pituus
+from Projekti_1.testi.maiden_pituus import maiden_pituus
 from random_lentokentat import lentokenttät_random_10 
 def peli():
     raha = 0
