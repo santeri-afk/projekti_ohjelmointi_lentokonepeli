@@ -196,20 +196,37 @@ def peli():
     return tilanne
 
 
-@app.route('/havio', methods=['GET', 'POST'])
-def havio():
-    global raha
-    return f"<link rel='stylesheet' href='/static/loppu.css'><h1>Hävisit pelin</h1><p>Raha:{raha}€</p><a href='/uudelleen'>Aloita uudelleen</a>"
-@app.route('/voitto', methods=['GET', 'POST'])
-def voitto():
-    global raha
-    return f"<link rel='stylesheet' href='/static/loppu.css'><h1>Voitit pelin</h1><p>Raha:{raha}€</p><a href='/uudelleen'>Aloita uudelleen</a>"
-
-
 @app.route('/uudelleen', methods=['GET', 'POST'])
 def uudelleen():
     return redirect(url_for("my_form"))
+############# yhdistää loppu css peliin
+@app.route('/havio', methods=['GET', 'POST'])
+def havio():
+    global raha
+    return (
+        "<!DOCTYPE html><html lang='fi'><head><meta charset='UTF-8'>"
+        "<link rel='stylesheet' href='/static/loppu.css'>"
+        "</head><body class='loppu'>"
+        "<div class='loppu-laatikko'>"
+        "<h1 class='loppu-otsikko'>Hävisit pelin</h1>"
+        f"<p class='loppu-raha'>Raha: {raha}€</p>"
+        "<a class='uudelleen-nappi' href='/uudelleen'>Pelaa uudelleen</a>"
+        "</div></body></html>"
+    )
 
 
-
+@app.route('/voitto', methods=['GET', 'POST'])
+def voitto():
+    global raha
+    return (
+        "<!DOCTYPE html><html lang='fi'><head><meta charset='UTF-8'>"
+        "<link rel='stylesheet' href='/static/loppu.css'>"
+        "</head><body class='loppu'>"
+        "<div class='loppu-laatikko'>"
+        "<h1 class='loppu-otsikko'>Voitit pelin</h1>"
+        f"<p class='loppu-raha'>Raha: {raha}€</p>"
+        "<a class='uudelleen-nappi' href='/uudelleen'>Pelaa uudelleen</a>"
+        "</div></body></html>"
+    )
+##########################
 app.run(host="127.0.0.1", port=3000, debug=True)
