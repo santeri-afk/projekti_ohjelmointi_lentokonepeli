@@ -114,7 +114,7 @@ def pelinaloitus():
 
 
 def nayta_tilanne2(nimi, sijainti, raha, polttoaine):
-    teksti = "<p>--- PELAAJAN TILANNE ---</p>"
+    teksti = "<link rel='stylesheet' href='/static/peli.css'><p>--- PELAAJAN TILANNE ---</p>"
     teksti += f"<p>Pelaaja: {nimi}</p>"
     teksti += f"<p>Sijainti: {sijainti}</p>"
     teksti += f"<p>Raha: {raha}€</p>"
@@ -199,11 +199,11 @@ def peli():
 @app.route('/havio', methods=['GET', 'POST'])
 def havio():
     global raha
-    return f"<h1>Hävisit pelin</h1><p>Raha:{raha}€</p><a href='/uudelleen'>Aloita uudelleen</a>"
+    return f"<link rel='stylesheet' href='/static/loppu.css'><h1>Hävisit pelin</h1><p>Raha:{raha}€</p><a href='/uudelleen'>Aloita uudelleen</a>"
 @app.route('/voitto', methods=['GET', 'POST'])
 def voitto():
     global raha
-    return f"<h1>Voitit pelin</h1><p>Raha:{raha}€</p><a href='/uudelleen'>Aloita uudelleen</a>"
+    return f"<link rel='stylesheet' href='/static/loppu.css'><h1>Voitit pelin</h1><p>Raha:{raha}€</p><a href='/uudelleen'>Aloita uudelleen</a>"
 
 
 @app.route('/uudelleen', methods=['GET', 'POST'])
