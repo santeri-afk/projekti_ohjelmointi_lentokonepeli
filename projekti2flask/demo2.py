@@ -12,8 +12,8 @@ YHTEYS_TIEDOT = {
     "host": "127.0.0.1",
     "port": 3306,
     "database": "flight_game",
-    "user": "jere1",
-    "password": "abc123",
+    "user": "atte",
+    "password": "140507",
     "autocommit": True,
     "collation": "utf8mb4_general_ci",
 }
