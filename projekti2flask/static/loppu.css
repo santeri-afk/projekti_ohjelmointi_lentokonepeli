@@ -1,0 +1,43 @@
+body.loppu {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("/static/aloitus.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+.loppu-laatikko {
+  background: rgba(255, 255, 255, 0.88);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.loppu-otsikko {
+  margin: 0 0 0.75rem 0;
+  color: rgb(47, 0, 255);
+  font-size: 2.2rem;
+}
+
+.loppu-raha {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.uudelleen-nappi {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  background-color: red;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
